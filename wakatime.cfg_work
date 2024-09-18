@@ -1,0 +1,7 @@
+[settings]
+api_key = "<LOGIN TO GET YOUR KEY>"
+
+hide_file_names = true
+hide_project_names = true
+hide_branch_names = true
+hide_project_folder = true
