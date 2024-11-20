@@ -24,7 +24,7 @@ cargo-generate
 cargo-insta
 cargo-leptos
 cargo-make
-cargo-mobile
+cargo-mobile2
 cargo-modules
 cargo-msrv
 cargo-outdated
