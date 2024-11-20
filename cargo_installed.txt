@@ -1,5 +1,6 @@
 # `cargo install cargo-binstall` first, then use cargo binstall to install the rest
 # `cargo binstall sccache` second to have better package caching
+# `cargo install pijul  --version 1.0.0-beta.9` manually because it's still in beta
 
 aarch64-esr-decoder
 bandwhich
@@ -73,7 +74,6 @@ kokai
 licensor
 miniserve
 nu
-pijul
 probe-rs-tools
 procs
 remote_serial
