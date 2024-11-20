@@ -51,7 +51,6 @@ du-dust
 dua-cli
 elf2uf2-rs
 elfcat
-emuman
 erdtree
 eza
 fclones
