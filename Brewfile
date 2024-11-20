@@ -92,6 +92,7 @@ brew "nmap"
 brew "open-ocd"
 brew "opus"
 brew "p7zip"
+brew "pipx"
 brew "postgresql@16", restart_service: true
 brew "protobuf"
 brew "python@3.10"
