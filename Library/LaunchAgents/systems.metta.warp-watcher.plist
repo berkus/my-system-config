@@ -1,0 +1,16 @@
+<?xml version=“1.0” encoding=“UTF-8”?>
+<!DOCTYPE plist PUBLIC “-//Apple//DTD PLIST 1.0//EN” “http://www.apple.com/DTDs/PropertyList-1.0.dtd”>
+<plist version=“1.0”>
+<dict>
+        <key>Label</key>
+        <string>systems.metta.warp-watcher</string>
+        <key>ProgramArguments</key>
+        <array>
+                <string>/Users/you/Tools/warp-watcher.sh</string>
+        </array>
+        <key>WatchPaths</key>
+        <array>
+                <string>/Applications/Warp.app/Contents/Resources/Warp.icns</string>
+        </array>
+</dict>
+</plist>
