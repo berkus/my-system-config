@@ -1,5 +1,13 @@
 #!/bin/sh
-cp ~/Tools/classic_1984_mac.icns /Applications/Warp.app/Contents/Resources/Warp.icns
-touch /Applications/Warp.app
+FILE_ORIG=/Applications/Warp.app/Contents/Resources/Warp.icns
+FILE_REPL=~/Tools/classic_1984_mac.icns
 
-echo "$(date): Updated warp icon" >> ~/Tools/warp-watcher.log
+ORIG=$(shasum $FILE_ORIG | cut -d ' ' -f 1)
+REPL=$(shasum $FILE_REPL | cut -d ' ' -f 1)
+
+if [[ "$ORIG" != "$REPL" ]]; then
+    cp $FILE_REPL $FILE_ORIG
+    touch /Applications/Warp.app
+
+    echo "$(date): Warp icon changed, updated" >> ~/Tools/warp-watcher.log
+fi
