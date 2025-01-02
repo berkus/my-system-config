@@ -1,0 +1,7 @@
+1. [1Password - Password Manager](https://chromewebstore.google.com/detail/1password-%E2%80%93-password-mana/aeblfdkhhhdcdjpifhhbdiojplfjncoa)
+2. [JSON Formatter](https://chromewebstore.google.com/detail/json-formatter/gpmodmeblccallcadopbcoeoejepgpnb)
+3. [Skip Ad - Ad Block & Auto Ad Skip on YouTube](https://chromewebstore.google.com/detail/skip-ad-ad-block-auto-ad/lkahpjghmdhpiojknppmlenngmpkkfma)
+4. [SponsorBlock for YouTube - Skip Sponsorships](https://chromewebstore.google.com/detail/sponsorblock-for-youtube/mnjggcdmjocbbbhaepdhchncahnbgone)
+5. [eID Chrome Extension](https://chromewebstore.google.com/detail/eid-chrome-extension/bkbdaodnaecdijpajecpncpdomgcoakc)
+6. [superagent - Automatic Cookie Consent](https://chromewebstore.google.com/detail/superagent-automatic-cook/neooppigbkahgfdhbpbhcccgpimeaafi)
+7. [uBlock Origin Lite](https://chromewebstore.google.com/detail/ublock-origin-lite/ddkjiahejlhfcafbddmgiahcphecmpfh)
