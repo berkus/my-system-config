@@ -58,6 +58,7 @@ fd-find
 fdtdump
 flamegraph
 flip-link
+gimoji
 git-cliff
 git-work
 grcov
