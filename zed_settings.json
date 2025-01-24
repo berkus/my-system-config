@@ -26,9 +26,14 @@
   "double_click_in_multibuffer": "open",
   "theme": {
     "mode": "system",
-    "light": "Gruvbox Light Hard",
-    "dark": "Gruvbox Dark Hard"
+    "light": "Xcode Bare", // Xcode theme
+    "dark": "Base16 Default Dark" // Base16 theme
   },
+  //"theme": {
+  //  "mode": "system",
+  //  "light": "Gruvbox Light Hard",
+  //  "dark": "Gruvbox Dark Hard"
+  //},
   "wrap_guides": [80, 120],
   "calls": {
     "mute_on_join": true
