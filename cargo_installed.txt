@@ -93,5 +93,6 @@ trippy
 trunk
 ugdb
 xd
+yazi-fm
 ytop
 zellij
