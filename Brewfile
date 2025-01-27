@@ -181,7 +181,7 @@ cask "font-open-dyslexic-nerd-font"
 cask "font-proggy-clean-tt-nerd-font"
 cask "font-symbols-only-nerd-font"
 cask "font-zed-mono-nerd-font"
-cask "ghidra"
+#cask "ghidra" - manually installed from source due to arm64 support
 cask "gitup"
 cask "gltfquicklook"
 cask "hopper-disassembler"
