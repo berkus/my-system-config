@@ -7,6 +7,7 @@
 // custom settings, run the `open default settings` command
 // from the command palette or from `Zed` application menu.
 {
+  "icon_theme": "VSCode Great Icons Theme",
   "assistant": {
     "default_model": {
       "provider": "zed.dev",
@@ -14,11 +15,23 @@
     },
     "version": "2"
   },
+  "language_models": {
+    "lmstudio": {
+      "api_url": "http://localhost:1234/v1",
+      "available_models": [
+        {
+          "name": "qwen2.5-coder-7b-instruct",
+          "display_name": "qwen 2.5 coder 16K",
+          "max_tokens": 16384
+        }
+      ]
+    }
+  },
   "base_keymap": "SublimeText",
-  "buffer_font_family": "PragmataPro",
-  "buffer_font_size": 16,
-  // "buffer_font_family": "Hack Nerd Font Mono",
-  // "buffer_font_size": 14,
+  // "buffer_font_family": "PragmataPro",
+  // "buffer_font_size": 16,
+  "buffer_font_family": "Hack Nerd Font Mono",
+  "buffer_font_size": 14,
   // "buffer_font_family": "Departure Mono",
   // "buffer_font_size": 15,
   "ui_font_family": "B612",
@@ -28,12 +41,9 @@
     "mode": "system",
     "light": "Xcode Bare", // Xcode theme
     "dark": "Base16 Default Dark" // Base16 theme
+    // "light": "Gruvbox Light Hard",
+    // "dark": "Gruvbox Dark Hard"
   },
-  //"theme": {
-  //  "mode": "system",
-  //  "light": "Gruvbox Light Hard",
-  //  "dark": "Gruvbox Dark Hard"
-  //},
   "wrap_guides": [80, 120],
   "calls": {
     "mute_on_join": true
@@ -53,23 +63,39 @@
     "git_status": true,
     "file_icons": true
   },
-  "journal": {
-    "path": "~/Obsidian Sync Vaults/Journal/",
-    "hour_format": "hour24"
-  },
   "show_whitespaces": "boundary",
   "terminal": {
     "font_family": "Hack Nerd Font Mono",
     "font_size": 13
   },
   "inlay_hints": {
-    "show_background": true
+    "enabled": true,
+    "show_background": true,
+    "show_type_hints": true,
+    "show_parameter_hints": true,
+    "show_other_hints": true
   },
   "ensure_final_newline_on_save": true,
   "autosave": "on_focus_change",
+  "file_types": {
+    "Liquid": ["*.html"]
+  },
   "lsp": {
     "rust-analyzer": {
       "initialization_options": {
+        "rust": {
+          "analyzerTargetDir": true
+        },
+        "inlayHints": {
+          "maxLength": null,
+          "lifetimeElisionHints": {
+            "enable": "skip_trivial",
+            "useParameterNames": true
+          },
+          "closureReturnTypeHints": {
+            "enable": "always"
+          }
+        },
         "rustfmt": {
           "extraArgs": ["+nightly"]
         }
