@@ -1,0 +1,73 @@
+[alias]
+    br = branch
+    ci = commit
+    pushf = push --force-with-lease
+    cl = clone
+    co = checkout
+    cob = checkout -b
+    cp = cherry-pick
+    dc = diff --cached
+    df = diff
+    diff = diff --word-diff
+    ec = config --global -e
+    fl = log -u
+    # Show files ignored by git:
+    ign = ls-files -o -i --exclude-standard
+    # Show last tag
+    lasttag = describe --tags --abbrev=0
+    ls = ls-files
+    lt = describe --tags --abbrev=0
+    rao = remote add origin
+    st = status -s
+    up = pull --rebase --prune
+    wblame = blame -w -M
+    # list branches sorted by last modified
+    b = "!git for-each-ref --sort='-authordate' --format='%(authordate)%09%(objectname:short)%09%(refname)' refs/heads | sed -e 's-refs/heads/--'"
+
+    # Flow helpers
+    save = "!git add -A && git commit -m 'SAVEPOINT'"
+    restore = reset HEAD~1 --mixed
+    wip = commit -am "WIP"
+    wipe = "!f() { rev=$(git rev-parse ${1-HEAD}); git add -A && git commit --allow-empty -qm 'WIPE SAVEPOINT' && git reset $rev --hard; }; f"
+
+    # [Legit](https://frostming.github.io/legit/) aliases
+    branches = !legit branches
+    graft = !legit graft \"$@\"
+    harvest = !legit harvest \"$@\"
+    publish = !legit publish \"$@\"
+    sprout = !legit sprout \"$@\"
+    switch = !legit switch \"$@\"
+    sync = !legit sync \"$@\"
+    unpublish = !legit unpublish \"$@\"
+
+    # Assume a file as unchanged:
+    assume = update-index --assume-unchanged
+    # Assume all:
+    assumeall = "!git st -s | awk {'print $2'} | xargs git assume"
+    # Show assumed files:
+    assumed = "!git ls-files -v | grep ^h | cut -c 3-"
+    # Unassume a file:
+    unassume = update-index --no-assume-unchanged
+    # Unassume all the assumed files:
+    unassumeall = "!git assumed | xargs git update-index --no-assume-unchanged"
+
+    # Log variants
+    lg = log -p
+    lg1 = log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)'
+    lg1a = log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all
+    lg2 = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)'
+    lg2a = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all
+    lol = log --graph --decorate --pretty=oneline --abbrev-commit
+    lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
+
+    # Complex aliases
+
+    brclean = "!f() { branches=$(git branch --merged ${1-master} | grep -v " ${1-master}$"); [ -z \"$branches\" ] || git branch -d $branches; }; f"
+    brdone = "!f() { git checkout ${1-master} && git up && git brclean ${1-master}; }; f"
+
+    funcdiff = !sh -c \"git show \\\"\\$1:\\$3\\\" | sed -n \\\"/^[^ \\t].*\\$4(/,/^}/p\\\" > .tmp1 &&\n        git show \\\"\\$2:\\$3\\\" | sed -n \\\"/^[^ \\t].*\\$4(/,/^}/p\\\" > .tmp2 &&\n        git diff --no-index .tmp1 .tmp2\"
+
+    po = "!git push -u origin $(git describe --contains --all HEAD)"
+
+    tree = log --all --graph --decorate=short --color --format=format:'%C(bold blue)%h%C(reset) %C(auto)%d%C(reset)\n         %C(bold black)[%cr]%C(reset)  %x09%C(bold black)%an: %s %C(reset)'
+    treeb = log --graph --decorate=short --color --format=format:'%C(bold blue)%h%C(reset) %C(auto)%d%C(reset)\n         %C(bold black)[%cr]%C(reset)  %x09%C(bold black)%an: %s %C(reset)'
