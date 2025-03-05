@@ -3,7 +3,7 @@
 # In ~/.cargo/config.toml setup sccache:
 # ```
 # [build]
-# rustc-wrapper = "~/.cargo/bin/sccache"
+# rustc-wrapper = ".cargo/bin/sccache"
 # ```
 # `cargo install pijul  --version 1.0.0-beta.9` manually because it's still in beta
 
