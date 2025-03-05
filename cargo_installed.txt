@@ -1,5 +1,10 @@
-# `cargo install cargo-binstall` first, then use cargo binstall to install the rest
+# `cargo install cargo-binstall` first, then use `cargo binstall` to install the rest
 # `cargo binstall sccache` second to have better package caching
+# In ~/.cargo/config.toml setup sccache:
+# ```
+# [build]
+# rustc-wrapper = "~/.cargo/bin/sccache"
+# ```
 # `cargo install pijul  --version 1.0.0-beta.9` manually because it's still in beta
 
 aarch64-esr-decoder
