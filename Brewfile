@@ -185,6 +185,7 @@ cask "font-zed-mono-nerd-font"
 #cask "ghidra" - manually installed from source due to arm64 support
 cask "gitup"
 cask "gltfquicklook"
+cask "hammerspoon"
 cask "hopper-disassembler"
 cask "iina"
 cask "imhex"
