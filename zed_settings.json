@@ -9,12 +9,49 @@
 {
   "icon_theme": "VSCode Great Icons Theme",
   "assistant": {
+    "profiles": {
+      "vibe-coding": {
+        "name": "Vibe Coding",
+        "tools": {
+          "open": true,
+          "create_directory": true,
+          "batch_tool": false,
+          "code_actions": true,
+          "code_symbols": true,
+          "contents": true,
+          "copy_path": false,
+          "create_file": true,
+          "delete_path": false,
+          "diagnostics": true,
+          "edit_file": true,
+          "fetch": true,
+          "list_directory": true,
+          "move_path": false,
+          "now": true,
+          "find_path": true,
+          "read_file": true,
+          "grep": true,
+          "rename": true,
+          "symbol_info": true,
+          "terminal": true,
+          "thinking": true,
+          "web_search": true
+        },
+        "enable_all_context_servers": true,
+        "context_servers": {}
+      }
+    },
+    "default_profile": "vibe-coding",
     "default_model": {
       "provider": "zed.dev",
-      "model": "claude-3-5-sonnet-latest"
+      "model": "claude-3-7-sonnet-thinking-latest"
     },
     "version": "2"
   },
+  "features": {
+    "edit_prediction_provider": "zed"
+  },
+  "show_edit_predictions": true,
   "language_models": {
     "lmstudio": {
       "api_url": "http://localhost:1234/v1",
@@ -39,10 +76,10 @@
   "double_click_in_multibuffer": "open",
   "theme": {
     "mode": "system",
-    "light": "Xcode Bare", // Xcode theme
-    "dark": "Base16 Default Dark" // Base16 theme
-    // "light": "Gruvbox Light Hard",
-    // "dark": "Gruvbox Dark Hard"
+    // "light": "Xcode Bare", // Xcode theme
+    // "dark": "Base16 Default Dark" // Base16 theme
+    "light": "Gruvbox Light Hard",
+    "dark": "Gruvbox Dark Hard"
   },
   "wrap_guides": [80, 120],
   "calls": {
@@ -53,7 +90,7 @@
     "button": true
   },
   "chat_panel": {
-    "button": false
+    "button": "never"
   },
   "toolbar": { "selections_menu": true },
   "outline_panel": {
