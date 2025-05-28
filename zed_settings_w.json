@@ -1,0 +1,155 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run the `zed: Open Default Settings` command
+// from the command palette
+{
+  "icon_theme": "VSCode Great Icons Theme",
+  "agent": {
+    "inline_assistant_model": {
+      "provider": "copilot_chat",
+      "model": "gemini-2.0-flash-001"
+    },
+    "profiles": {
+      "vibe-coding": {
+        "name": "Vibe Coding",
+        "tools": {
+          "open": true,
+          "create_directory": true,
+          "batch_tool": false,
+          "code_actions": true,
+          "code_symbols": true,
+          "contents": true,
+          "copy_path": false,
+          "create_file": true,
+          "delete_path": false,
+          "diagnostics": true,
+          "edit_file": true,
+          "fetch": true,
+          "list_directory": true,
+          "move_path": false,
+          "now": true,
+          "find_path": true,
+          "read_file": true,
+          "grep": true,
+          "rename": true,
+          "symbol_info": true,
+          "terminal": true,
+          "thinking": true,
+          "web_search": true
+        },
+        "enable_all_context_servers": true,
+        "context_servers": {}
+      }
+    },
+    "default_profile": "vibe-coding",
+    "default_model": {
+      "provider": "copilot_chat",
+      "model": "claude-sonnet-4"
+    },
+    "inline_alternatives": [
+      {
+        "provider": "copilot_chat",
+        "model": "GPT-4o"
+      }
+    ],
+    "version": "2"
+  },
+  "features": {
+    "edit_prediction_provider": "zed"
+  },
+  "show_edit_predictions": true,
+  "language_models": {
+    "lmstudio": {
+      "available_models": [
+        {
+          "display_name": "Qwen coder 14B custom",
+          "name": "qwen2.5-coder-14b-instruct",
+          "max_tokens": 32768
+        }
+      ]
+    }
+  },
+  "base_keymap": "SublimeText",
+  // "buffer_font_family": "PragmataPro",
+  // "buffer_font_size": 16,
+  "buffer_font_family": "Hack Nerd Font Mono",
+  "buffer_font_size": 16,
+  // "buffer_font_family": "Departure Mono",
+  // "buffer_font_size": 15,
+  "ui_font_family": "B612",
+  "ui_font_size": 15,
+  "double_click_in_multibuffer": "open",
+  "theme": {
+    "mode": "light",
+    "light": "Xcode Bare",
+    "dark": "Base16 Default Dark"
+    // "light": "Gruvbox Light Hard",
+    // "dark": "Gruvbox Dark Hard"
+  },
+  "wrap_guides": [80, 120],
+  "calls": {
+    "mute_on_join": true
+  },
+  "seed_search_query_from_cursor": "selection",
+  "collaboration_panel": {
+    "button": true
+  },
+  "chat_panel": {
+    "button": "never"
+  },
+  "toolbar": { "selections_menu": true },
+  "minimap": {
+    "show": "always",
+    "thumb": "always"
+  },
+  "outline_panel": {
+    "dock": "right"
+  },
+  "tabs": {
+    "git_status": true,
+    "file_icons": true
+  },
+  "show_whitespaces": "boundary",
+  "terminal": {
+    "font_family": "Hack Nerd Font Mono",
+    "font_size": 13
+  },
+  "inlay_hints": {
+    "enabled": true,
+    "show_background": true,
+    "show_type_hints": true,
+    "show_parameter_hints": true,
+    "show_other_hints": true
+  },
+  "ensure_final_newline_on_save": true,
+  "autosave": "on_focus_change",
+  "file_types": {
+    "Liquid": ["*.html"]
+  },
+  "lsp": {
+    "rust-analyzer": {
+      "initialization_options": {
+        "rust": {
+          "analyzerTargetDir": true
+        },
+        "inlayHints": {
+          "maxLength": null,
+          "lifetimeElisionHints": {
+            "enable": "skip_trivial",
+            "useParameterNames": true
+          },
+          "closureReturnTypeHints": {
+            "enable": "always"
+          }
+        },
+        "rustfmt": {
+          "extraArgs": ["+nightly"]
+        }
+      }
+    }
+  }
+}
