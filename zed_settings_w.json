@@ -4,8 +4,8 @@
 // documentation: https://zed.dev/docs/configuring-zed
 //
 // To see all of Zed's default settings without changing your
-// custom settings, run the `zed: Open Default Settings` command
-// from the command palette
+// custom settings, run the `open default settings` command
+// from the command palette or from `Zed` application menu.
 {
   "icon_theme": "VSCode Great Icons Theme",
   "agent": {
@@ -56,19 +56,24 @@
         "model": "GPT-4o"
       }
     ],
+    "play_sound_when_agent_done": true,
     "version": "2"
   },
   "features": {
     "edit_prediction_provider": "zed"
   },
   "show_edit_predictions": true,
+  "edit_predictions": {
+    "mode": "subtle"
+  },
   "language_models": {
     "lmstudio": {
       "available_models": [
         {
           "display_name": "Qwen coder 14B custom",
           "name": "qwen2.5-coder-14b-instruct",
-          "max_tokens": 32768
+          "max_tokens": 32768,
+          "supports_tool_calls": false
         }
       ]
     }
@@ -77,7 +82,7 @@
   // "buffer_font_family": "PragmataPro",
   // "buffer_font_size": 16,
   "buffer_font_family": "Hack Nerd Font Mono",
-  "buffer_font_size": 16,
+  "buffer_font_size": 14,
   // "buffer_font_family": "Departure Mono",
   // "buffer_font_size": 15,
   "ui_font_family": "B612",
@@ -109,26 +114,67 @@
   "outline_panel": {
     "dock": "right"
   },
+  "git_panel": {
+    "dock": "right"
+  },
+  "git": {
+    "hunk_style": "unstaged_hollow"
+  },
+  "notification_panel": {
+    "button": false
+  },
+  "indent_guides": {
+    "enabled": true,
+    "coloring": "indent_aware",
+    "background_coloring": "indent_aware"
+  },
   "tabs": {
     "git_status": true,
-    "file_icons": true
+    "file_icons": true,
+    "activate_on_close": "left_neighbour",
+    "show_diagnostics": "errors"
+  },
+  "preview_tabs": {
+    "enabled": true,
+    "enable_preview_from_file_finder": true
+  },
+  "diagnostics": {
+    "button": true,
+    "include_warnings": true,
+    "inline": {
+      "enabled": true,
+      "min_column": 96
+    }
   },
   "show_whitespaces": "boundary",
   "terminal": {
+    "button": false,
     "font_family": "Hack Nerd Font Mono",
-    "font_size": 13
+    "font_size": 13,
+    "line_height": "standard"
   },
   "inlay_hints": {
     "enabled": true,
     "show_background": true,
     "show_type_hints": true,
     "show_parameter_hints": true,
-    "show_other_hints": true
+    "show_other_hints": true,
+    "toggle_on_modifiers_press": {
+      "control": true,
+      "shift": false,
+      "alt": true,
+      "platform": true,
+      "function": false
+    }
   },
   "ensure_final_newline_on_save": true,
+  "always_treat_brackets_as_autoclosed": true,
   "autosave": "on_focus_change",
   "file_types": {
     "Liquid": ["*.html"]
+  },
+  "title_bar": {
+    "show_branch_icon": true
   },
   "lsp": {
     "rust-analyzer": {
