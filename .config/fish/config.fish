@@ -1,11 +1,14 @@
-fish_add_path -gP /opt/homebrew/bin /opt/homebrew/sbin ~/.cargo/bin
+#fish_add_path -gP /opt/homebrew/bin /opt/homebrew/sbin ~/.cargo/bin
 
 # Theme for "cat"-ing files in warp
-set -gx BAT_THEME zenburn
+set -gx BAT_THEME_DARK zenburn
+# Theme for "cat"-ing files in Zed
+set -gx BAT_THEME_LIGHT Coldark-Cold
+
 set -gx EDITOR 'zed --wait --new'
 
 if begin; status --is-login; and [ -z "$__ENVIRON__" ]; end
-	run_gpg-agent
+    run_gpg-agent
 end
 
 # fish git prompt
