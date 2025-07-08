@@ -7,8 +7,10 @@ $username\
 [](bg:color_yellow fg:color_orange)\
 $directory\
 [](fg:color_yellow bg:color_aqua)\
-$git_branch\
-$git_status\
+${git_branch}\
+${git_status}\
+${custom.jj_change}\
+${custom.jj_desc}\
 [](fg:color_aqua bg:color_blue)\
 $c\
 $rust\
@@ -94,6 +96,29 @@ format = '[[ $symbol $branch ](fg:color_fg0 bg:color_aqua)]($style)'
 [git_status]
 style = "bg:color_aqua"
 format = '[[($all_status$ahead_behind )](fg:color_fg0 bg:color_aqua)]($style)'
+
+[git_commit]
+disabled = true
+
+[custom.jj_change]
+description = "The working copy of the repo in your current directory: workspaces (if relevant), change ID, bookmarks"
+command = """
+jj log --no-graph -r=@ -T='separate(" ", working_copies, change_id.shortest(), bookmarks,)'
+"""
+when = "jj st" # && -z [jj log --no-graph -r=@ -T='change_id']"
+format = '[on [$symbol ($output)](fg:color_purple bold bg:color_aqua) ]($style)'
+symbol = '🐦'
+style = 'fg:color_fg0 bg:color_aqua'
+
+[custom.jj_desc]
+description = "The description of your working copy, if set"
+command = '''
+jj log --no-graph -r=@ -T="description"
+'''
+when = "jj st" # jj log --no-graph -r=@ -T='description'"
+format = '[$symbol $output ]($style)'
+symbol = '|'
+style = 'fg:color_fg0 bg:color_aqua'
 
 [nodejs]
 symbol = ""
