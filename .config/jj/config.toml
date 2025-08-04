@@ -1,5 +1,9 @@
 "$schema" = "https://jj-vcs.github.io/jj/latest/config-schema.json"
 
+[ui]
+default-command = "status"
+pager = "delta" # cargo binstall git-delta
+
 [templates]
 draft_commit_description = '''
     concat(
@@ -54,3 +58,9 @@ addparent = ["util", "exec", "--", "bash", "-c", '''
 rmparent = ["util", "exec", "--", "bash", "-c", '''
     jj rebase -s $1 -d "all:$1- ~ $2"
 ''', "jj-rmparent"]
+
+# Usage: jj rebase-all <branch> (defaults to main)
+# Rebases all ancestors of <branch> onto it's new version.
+"rebase-all" = ["util", "exec", "--", "bash", "-c", """
+    jj rebase -s "all:roots(${1:-main}..@)" -d ${1:-main}
+""", "jj-rebase-all"]
