@@ -1,0 +1,56 @@
+"$schema" = "https://jj-vcs.github.io/jj/latest/config-schema.json"
+
+[templates]
+draft_commit_description = '''
+    concat(
+    coalesce(description, "\n"),
+    surround(
+        "\nJJ: This commit contains the following changes:\n", "",
+        indent("JJ:     ", diff.stat(72)),
+    ),
+    "\nJJ: ignore-rest\n",
+    diff.git(),
+    )
+'''
+
+[revset-aliases]
+'wip(s)' = 'description("wip: ") & description(s)'
+'why_immutable(r)' = '(r & immutable()) | roots(r:: & immutable_heads())'
+'why_in(r, domain)' = '(r & domain) | roots(r:: & heads(domain))'
+
+[aliases]
+info = ["log", "--no-graph"]
+lg = ["log", "-T", "brief"]
+lst = [
+    "info",
+    "-T",
+    "brief",
+    "-r",
+    "(heads(ancestors(visible_heads() ~ immutable(), 2) ~ (empty() & description(exact:'')))) | nmerges-",
+]
+tug = ["bookmark", "move", "--from", "closest_bookmark(@-)", "--to", "current"]
+book = ["bookmark"]
+pushed = ["log", "--no-graph", "-r", "pushed-", "-Tbrief"]
+drop = ["abandon"]
+'op@' = ["op", "log", "-n1", "--no-graph", "-T", "id.short()"]
+ls = ["util", "exec", "--", "bash", "-c", """
+    rev="${1:-@}"
+    jj log -r "ancestors(::$rev ~ immutable(), 2) | $rev:: | $rev" -Tbrief
+""", "jj-alias"]
+"show-" = ["show", "-r", "@-"]
+"desc-" = ["describe", "-r", "@-"]
+"diff-" = ["diff", "-r", "@-"]
+
+# Usage: jj addparent <child aka mergerev> <newparent>
+#
+# jj rebase -s <mergerev> -d all:<mergerev>- -d <newparent>
+addparent = ["util", "exec", "--", "bash", "-c", '''
+    jj rebase -s $1 -d "all:$1-" -d $2
+''', "jj-addparent"]
+
+# Usage: jj rmparent <child aka mergerev> <oldparent>
+#
+# jj rebase -s <mergerev> -d "all:<mergerev>- ~ <oldparent>"
+rmparent = ["util", "exec", "--", "bash", "-c", '''
+    jj rebase -s $1 -d "all:$1- ~ $2"
+''', "jj-rmparent"]
