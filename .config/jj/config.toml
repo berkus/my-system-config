@@ -64,3 +64,14 @@ rmparent = ["util", "exec", "--", "bash", "-c", '''
 "rebase-all" = ["util", "exec", "--", "bash", "-c", """
     jj rebase -s "all:roots(${1:-main}..@)" -d ${1:-main}
 """, "jj-rebase-all"]
+
+# Usage: jj graft <from> <to> <after>
+# The range of revisions <from>..<to> (inclusive) is rebased --after <after>
+graft = ["util", "exec", "--", "bash", "-c", """
+    onto="$3"
+    for rev in $(jj log -r "connected($1|$2)" --template "change_id.short() ++ ' '" --reversed --no-graph); do
+        #echo "grafting rev $rev onto $onto"
+        jj rebase -r $rev --after $onto || exit 1
+        onto="$rev"
+    done
+""", "jj-graft"]
