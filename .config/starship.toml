@@ -105,7 +105,8 @@ description = "The working copy of the repo in your current directory: workspace
 command = """
 jj log --no-graph -r=@ -T='separate(" ", working_copies, change_id.shortest(), bookmarks,)'
 """
-when = "jj st" # && -z [jj log --no-graph -r=@ -T='change_id']"
+when = ''' test -n "$(jj status)" || exit 1 '''
+ignore_timeout = true
 format = '[on [$symbol ($output)](fg:color_purple bold bg:color_aqua) ]($style)'
 symbol = '🐦'
 style = 'fg:color_fg0 bg:color_aqua'
@@ -115,7 +116,8 @@ description = "The description of your working copy, if set"
 command = '''
 jj log --no-graph -r=@ -T="description"
 '''
-when = "jj st" # jj log --no-graph -r=@ -T='description'"
+when = ''' test -n "$(jj status)" -a -n "$(jj log --no-graph -r=@ -T='description')" || exit 1 '''
+ignore_timeout = true
 format = '[$symbol $output ]($style)'
 symbol = '|'
 style = 'fg:color_fg0 bg:color_aqua'
