@@ -114,7 +114,7 @@ style = 'fg:color_fg0 bg:color_aqua'
 [custom.jj_desc]
 description = "The description of your working copy, if set"
 command = '''
-jj log --no-graph -r=@ -T="description"
+jj log --no-graph -r=@ -T="description" | awk '{if(length($0) > 25) {s = substr($0, 1, 25); sub(/[ \t\r\n]+$/, "", s); print s "…"} else {print $0}}'
 '''
 when = ''' test -n "$(jj status)" -a -n "$(jj log --no-graph -r=@ -T='description')" || exit 1 '''
 ignore_timeout = true
