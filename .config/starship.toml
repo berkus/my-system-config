@@ -89,13 +89,20 @@ truncation_symbol = "…/"
 "Developer" = "󰲋 "
 
 [git_branch]
-symbol = ""
 style = "bg:color_aqua"
 format = '[[ $symbol $branch ](fg:color_fg0 bg:color_aqua)]($style)'
+symbol = "🌱"
+truncation_length = 15
+only_attached = true
+ignore_branches = ["master", "main"]
 
 [git_status]
+ahead = '🏎💨${count}'
+behind = '😰${count}'
+diverged = '${ahead_count}↕️${behind_count}'
 style = "bg:color_aqua"
-format = '[[($all_status$ahead_behind )](fg:color_fg0 bg:color_aqua)]($style)'
+format = '[ [($modified$diverged$ahead_behind )](fg:color_fg0 bg:color_aqua)]($style)'
+# disabled = true
 
 [git_commit]
 disabled = true
@@ -103,12 +110,12 @@ disabled = true
 [custom.jj_change]
 description = "The working copy of the repo in your current directory: workspaces (if relevant), change ID, bookmarks"
 command = """
-jj log --no-graph -r=@ -T='separate(" ", working_copies, change_id.shortest(), bookmarks,)'
+jj log --no-graph --color never -r=@ -T='separate(" ", working_copies, change_id.shortest(), bookmarks,)'
 """
 when = ''' test -n "$(jj status)" || exit 1 '''
 ignore_timeout = true
-format = '[on [$symbol ($output)](fg:color_purple bold bg:color_aqua) ]($style)'
-symbol = '🐦'
+format = '[ on $symbol ($output) ]($style)'
+symbol = '🥋'
 style = 'fg:color_fg0 bg:color_aqua'
 
 [custom.jj_desc]
@@ -118,8 +125,8 @@ jj log --no-graph -r=@ -T="description" | awk '{if(length($0) > 25) {s = substr(
 '''
 when = ''' test -n "$(jj status)" -a -n "$(jj log --no-graph -r=@ -T='description')" || exit 1 '''
 ignore_timeout = true
-format = '[$symbol $output ]($style)'
-symbol = '|'
+format = '[$symbol  $output ]($style)'
+symbol = '🖊️'
 style = 'fg:color_fg0 bg:color_aqua'
 
 [nodejs]
