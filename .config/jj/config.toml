@@ -65,6 +65,9 @@ rmparent = ["util", "exec", "--", "bash", "-c", '''
     jj rebase -s "all:roots(${1:-main}..@)" -d ${1:-main}
 """, "jj-rebase-all"]
 
+# Resolve conflicts using mergiraf (`brew install mergiraf` or `cargo binstall mergiraf`)
+resolvem = ["resolve", "--tool", "mergiraf"]
+
 # Usage: jj graft <from> <to> <after>
 # The range of revisions <from>..<to> (inclusive) is rebased --after <after>
 graft = ["util", "exec", "--", "bash", "-c", """
