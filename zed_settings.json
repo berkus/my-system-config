@@ -93,58 +93,50 @@
     "Gruvbox Light Hard": {
       "syntax": {
         "constant.comment.todo": {
-          "background_color": "#8008f2ff",
-          "color": "#eeeeeedd"
-          // "background_color": "#00000000",
+          "color": "#eeeeeedd",
+          "background_color": "#8008f2ff"
           // "font_weight": "bold"
           // "font_style": "italic"
         },
         "constant.comment.todo.user": {
-          "background_color": "#8008f2ff",
-          "color": "#eeee00dd"
-          // "background_color": "#00000000",
+          "color": "#eeee00dd",
+          "background_color": "#8008f2ff"
           // "font_weight": "bold",
           // "font_style": "italic"
         },
         "string.comment.info": {
           "color": "#eeeeeedd",
           "background_color": "#50a14fff"
-          // "background_color": "#00000000",
           // "font_weight": "bold",
           // "font_style": "italic"
         },
         "string.comment.info.user": {
           "color": "#eeee00dd",
           "background_color": "#50a14fff"
-          // "background_color": "#00000000",
           // "font_weight": "bold",
           // "font_style": "italic"
         },
         "keyword.comment.warn": {
           "color": "#eeeeeedd",
           "background_color": "#c18401ff"
-          // "background_color": "#00000000",
           // "font_weight": "bold",
           // "font_style": "italic"
         },
         "keyword.comment.warn.user": {
           "color": "#eeee00dd",
           "background_color": "#c18401ff"
-          // "background_color": "#00000000",
           // "font_weight": "bold",
           // "font_style": "italic"
         },
         "property.comment.error": {
           "color": "#eeeeeedd",
           "background_color": "#ca1243ff"
-          // "background_color": "#00000000",
           // "font_weight": "bold",
           // "font_style": "italic"
         },
         "property.comment.error.user": {
           "color": "#eeee00dd",
           "background_color": "#ca1243ff"
-          // "background_color": "#00000000",
           // "font_weight": "bold",
           // "font_style": "italic"
         }
@@ -162,6 +154,42 @@
         //   "font_weight": "bold"
         //   // "font_style": "italic"
         // }
+      }
+    },
+    "Ayu Dark": {
+      "syntax": {
+        "constant.comment.todo": {
+          "color": "#eeeeeedd",
+          "background_color": "#8008f2ff"
+        },
+        "constant.comment.todo.user": {
+          "color": "#eeee00dd",
+          "background_color": "#8008f2ff"
+        },
+        "string.comment.info": {
+          "color": "#eeeeeedd",
+          "background_color": "#50a14fff"
+        },
+        "string.comment.info.user": {
+          "color": "#eeee00dd",
+          "background_color": "#50a14fff"
+        },
+        "keyword.comment.warn": {
+          "color": "#eeeeeedd",
+          "background_color": "#c18401ff"
+        },
+        "keyword.comment.warn.user": {
+          "color": "#eeee00dd",
+          "background_color": "#c18401ff"
+        },
+        "property.comment.error": {
+          "color": "#eeeeeedd",
+          "background_color": "#ca1243ff"
+        },
+        "property.comment.error.user": {
+          "color": "#eeee00dd",
+          "background_color": "#ca1243ff"
+        }
       }
     }
   },
