@@ -7,8 +7,8 @@
 // custom settings, run the `open default settings` command
 // from the command palette or from `Zed` application menu.
 {
-  "icon_theme": "VSCode Great Icons Theme",
   "agent": {
+    "always_allow_tool_actions": true,
     "profiles": {
       "vibe-coding": {
         "name": "Vibe Coding",
@@ -43,11 +43,12 @@
     },
     "default_profile": "vibe-coding",
     "default_model": {
-      "provider": "zed.dev",
-      "model": "claude-3-7-sonnet-thinking-latest"
+      "provider": "copilot_chat",
+      "model": "claude-haiku-4.5"
     },
     "play_sound_when_agent_done": true,
-    "version": "2"
+    "expand_edit_card": true,
+    "expand_terminal_card": true
   },
   "features": {
     "edit_prediction_provider": "zed"
@@ -64,6 +65,7 @@
           "name": "qwen2.5-coder-7b-instruct",
           "display_name": "qwen 2.5 coder 16K",
           "max_tokens": 16384,
+          "supports_images": false,
           "supports_tool_calls": false
         }
       ]
@@ -73,18 +75,95 @@
   // "buffer_font_family": "PragmataPro",
   // "buffer_font_size": 16,
   "buffer_font_family": "Hack Nerd Font Mono",
-  "buffer_font_size": 14,
+  "buffer_font_size": 12,
   // "buffer_font_family": "Departure Mono",
   // "buffer_font_size": 15,
   "ui_font_family": "B612",
   "ui_font_size": 15,
   "double_click_in_multibuffer": "open",
+  "icon_theme": "VSCode Great Icons Theme",
   "theme": {
     "mode": "system",
     // "light": "Xcode Bare", // Xcode theme
     // "dark": "Base16 Default Dark" // Base16 theme
-    "light": "Gruvbox Light Hard",
-    "dark": "Gruvbox Dark Hard"
+    "light": "Gruvbox Light Hard", // "Alabaster BG", or "Gruvbox Light Hard",
+    "dark": "Ayu Dark" // or "Gruvbox Dark Hard"
+  },
+  "theme_overrides": {
+    "Gruvbox Light Hard": {
+      "syntax": {
+        "constant.comment.todo": {
+          "background_color": "#8008f2ff",
+          "color": "#eeeeeedd"
+          // "background_color": "#00000000",
+          // "font_weight": "bold"
+          // "font_style": "italic"
+        },
+        "constant.comment.todo.user": {
+          "background_color": "#8008f2ff",
+          "color": "#eeee00dd"
+          // "background_color": "#00000000",
+          // "font_weight": "bold",
+          // "font_style": "italic"
+        },
+        "string.comment.info": {
+          "color": "#eeeeeedd",
+          "background_color": "#50a14fff"
+          // "background_color": "#00000000",
+          // "font_weight": "bold",
+          // "font_style": "italic"
+        },
+        "string.comment.info.user": {
+          "color": "#eeee00dd",
+          "background_color": "#50a14fff"
+          // "background_color": "#00000000",
+          // "font_weight": "bold",
+          // "font_style": "italic"
+        },
+        "keyword.comment.warn": {
+          "color": "#eeeeeedd",
+          "background_color": "#c18401ff"
+          // "background_color": "#00000000",
+          // "font_weight": "bold",
+          // "font_style": "italic"
+        },
+        "keyword.comment.warn.user": {
+          "color": "#eeee00dd",
+          "background_color": "#c18401ff"
+          // "background_color": "#00000000",
+          // "font_weight": "bold",
+          // "font_style": "italic"
+        },
+        "property.comment.error": {
+          "color": "#eeeeeedd",
+          "background_color": "#ca1243ff"
+          // "background_color": "#00000000",
+          // "font_weight": "bold",
+          // "font_style": "italic"
+        },
+        "property.comment.error.user": {
+          "color": "#eeee00dd",
+          "background_color": "#ca1243ff"
+          // "background_color": "#00000000",
+          // "font_weight": "bold",
+          // "font_style": "italic"
+        }
+        // Separate highlight for brackets, if needed:
+        // "property.comment.error.bracket": {
+        //   "color": "#00d000ff"
+        //   // "background_color": "#00000000",
+        //   // "font_weight": "bold",
+        //   // "font_style": "italic"
+        // },
+        // This doesn't seem to work:
+        // "emphasis.comment.user": {
+        //   "color": "#000000dd",
+        //   "background_color": "#00000000",
+        //   "font_weight": "bold"
+        //   // "font_style": "italic"
+        // }
+      }
+    }
   },
   "wrap_guides": [80, 120],
   "calls": {
@@ -94,13 +173,12 @@
   "collaboration_panel": {
     "button": true
   },
-  "chat_panel": {
-    "button": "never"
-  },
   "toolbar": { "selections_menu": true },
   "minimap": {
-    "show": "always",
-    "thumb": "always"
+    "show": "auto",
+    "thumb": "always",
+    "thumb_border": "none",
+    "display_in": "active_editor"
   },
   "outline_panel": {
     "dock": "right"
@@ -134,7 +212,7 @@
     "include_warnings": true,
     "inline": {
       "enabled": true,
-      "min_column": 96
+      "min_column": 40
     }
   },
   "show_whitespaces": "boundary",
@@ -171,7 +249,12 @@
     "rust-analyzer": {
       "initialization_options": {
         "rust": {
-          "analyzerTargetDir": true
+          "analyzerTargetDir": "target/analyzer"
+        },
+        "checkOnSave": {
+          "enable": true,
+          "command": "clippy"
+          // "extraArgs": ["--", "-W", "clippy::pedantic"]
         },
         "inlayHints": {
           "maxLength": null,
@@ -188,5 +271,6 @@
         }
       }
     }
-  }
+  },
+  "lsp_document_colors": "background"
 }
